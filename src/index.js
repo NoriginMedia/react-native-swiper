@@ -620,20 +620,7 @@ export default class extends Component {
   }
 
   renderScrollView = pages => {
-    if (Platform.OS === 'web') {
-      <ScrollView ref={this.refScrollView}
-        {...this.props}
-        {...this.scrollViewPropOverrides()}
-        contentContainerStyle={[this.props.style]}
-        contentOffset={this.state.offset}
-        onScrollBeginDrag={this.onScrollBegin}
-        onMomentumScrollEnd={this.onScrollEnd}
-        onScrollEndDrag={this.onScrollEndDrag}
-        style={this.props.scrollViewStyle}>
-        {pages}
-      </ScrollView>
-    }
-    else if (Platform.OS === 'ios') {
+    if (Platform.OS === 'ios' || Platform.OS === 'web') {
       return (
         <ScrollView ref={this.refScrollView}
           {...this.props}
