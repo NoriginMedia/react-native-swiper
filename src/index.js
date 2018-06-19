@@ -623,7 +623,7 @@ export default class extends Component {
     if (Platform.OS === 'ios' || Platform.OS === 'web') {
       return (
         <ScrollView ref={this.refScrollView}
-          {...(Platform.OS === 'web' ? this.props : {})}
+          {...(Platform.OS === 'web' ? {} : this.props)}
           {...this.scrollViewPropOverrides()}
           contentContainerStyle={[styles.wrapperIOS, this.props.style]}
           contentOffset={this.state.offset}
